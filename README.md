@@ -1,2 +1,2 @@
-# Angular-test
-Anugular8-proect with pagenation &amp; Sorting &amp; search
+# Angular8+material
+Anugular8-project with pagenation &amp; Sorting &amp; search
