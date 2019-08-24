@@ -1,0 +1,26 @@
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort style="background-color: whitesmoke">
+        <ng-container matColumnDef="reg">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="color:black">RegNo</th>
+            <td mat-cell *matCellDef="let row"> {{row.regNo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="speed">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="color:black">Speed</th>
+            <td mat-cell *matCellDef="let row" [style.color]="row.speed < 5? 'black':((row.speed > 5 && row.speed < 10) ? 'red' : ((row.speed > 10 && row.speed < 20) ? 'green': 'yellow'))"> {{row.speed}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="locstr">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="color:black">locStr</th>
+            <td mat-cell *matCellDef="let row" > {{row.locStr}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" style="background-color: whitesmoke"></mat-paginator>
+</div>
